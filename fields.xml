@@ -1,0 +1,320 @@
+<Fields>
+	<Field id="20">
+		<Name>Sender's Reference</Name>
+		<Sequence>A</Sequence>
+		<Presence>Mandatory</Presence>
+		<Definition>This field specifies the reference assigned by the Sender to unambiguously identify the message.</Definition>
+		<Usage>The reference must be unique for each message (or chain of messages) and is part of the message identification and transaction identification which is to be used in related queries, cancellations, etc.</Usage>
+		<Format>16x</Format>
+	</Field>
+	<Field id="21R">
+		<Name>Customer Specified Reference</Name>
+		<Sequence>A</Sequence>
+		<Presence>Optional</Presence>
+		<Definition>This field specifies the reference to the entire message assigned by either the instructing party, when present or ordering customer, when the instructing party is not present.</Definition>
+		<Usage>When this field is present, the ordering customer requests a single debit entry for the sum of the amounts of all transactions in the instruction, even if this instruction is chained in several messages. If the field is not used, all debit items are posted individually.</Usage>
+		<Format>16x</Format>
+	</Field>
+	<Field id="28D">
+		<Name>Message Index/Total</Name>
+		<Sequence>A</Sequence>
+		<Presence>Mandatory</Presence>
+		<Definition>This field chains different messages by specifying the sequence number in the total number of messages.</Definition>
+		<Usage>Both the message index and the total number of messages allow the receiver to check that all transactions to be executed have been received.</Usage>
+		<Subfields>
+			<Subfield>
+				<Name>Message Index</Name>
+				<Format>5n</Format>
+				<Amount>1</Amount>
+			</Subfield>
+			<Subfield text="/" />
+			<Subfield>
+				<Name>Total</Name>
+				<Format>5n</Format>
+				<Amount>1</Amount>
+			</Subfield>
+		</Subfields>
+	</Field>
+	<Field id="50a">
+		<Name>Instructing Party</Name>
+		<Sequence>A</Sequence>
+		<Presence type="rule">C4</Presence>
+		<Definition>This field identifies the customer which is authorised by the account owner/account servicing institution to order all the transactions in the message.</Definition>
+		<Usage>This field must only be used when the instructing customer is not also the account owner.</Usage>
+		<Options>
+			<Option id="C">
+				<Name>Identifier Code</Name>
+				<Format>4!a2!a2!c[3!c]</Format>
+			</Option>
+			<Option id="L">
+				<Name>Party Identifier</Name>
+				<Format>35x</Format>
+			</Option>
+		</Options>
+	</Field>
+	<Field id="50a">
+		<Name>Ordering Customer</Name>
+		<Sequence>A</Sequence>
+		<Presence type="rule">C3</Presence>
+		<Definition>This field identifies the account owner whose account is to be debited with all transactions in sequence B.</Definition>
+		<Usage>Both the account number of the ordering customer at the Receiver or at the account servicing institution and the name and address or the non-financial institution BIC of the ordering customer must be present. Both the account number of the ordering customer at the Receiver or at the account servicing institution and the name and address or the non-financial institution BIC of the ordering customer must be present.</Usage>
+		<Options>
+			<Option id="F">
+				<Name>Party Identifier (Account)</Name>
+				<Subfields>
+					<Subfield>
+						<Name>Account</Name>
+						<Format>34x</Format>
+						<Prefix>/</Prefix>
+						<Amount>1</Amount>
+					</Subfield>
+					<Subfield type="select">
+						<Name>Details-type</Name>
+						<Options>
+							<Option id="1">
+								<Name>Name of the Ordering Customer</Name>
+								<Format>33x</Format>
+								<Prefix>/</Prefix>
+							</Option>
+							<Option id="2">
+								<Name>Address Line</Name>
+								<Format>33x</Format>
+								<Prefix>/</Prefix>
+							</Option>
+							<Option id="3">
+								<Name>Country and Town</Name>
+								<Prefix>/</Prefix>
+								<Subfields>
+									<Country type="ISO3"/>
+									<Subfield>
+										<Name>Town</Name>
+										<Format>29x</Format>
+										<Prefix>/</Prefix>
+										<Min>0</Min>
+										<Max>1</Max>
+									</Subfield>
+								</Subfields>
+							</Option>
+							<Option id="4">
+								<Name>Date of Birth</Name>
+								<Prefix>/</Prefix>
+								<Format type="date">YYYYMMDD</Format>
+							</Option>
+							<Option id="5">
+								<Name>Place of Birth</Name>
+								<Prefix>/</Prefix>
+								<Subfields>
+									<Country type="ISO3"/>
+									<Subfield>
+										<Name>Town</Name>
+										<Format>29x</Format>
+										<Prefix>/</Prefix>
+										<Min>0</Min>
+										<Max>1</Max>
+									</Subfield>
+								</Subfields>
+							</Option>
+							<Option id="6">
+								<Name>Customer Identification Number</Name>
+								<Prefix>/</Prefix>
+								<Subfields>
+									<Country type="ISO3" />
+									<Subfield>
+										<Name>Issuer</Name>
+										<Format>29x</Format>
+										<Prefix>/</Prefix>
+									</Subfield>
+									<Subfield>
+										<Name>Number</Name>
+										<Format type="rest-length">29x</Format>
+										<Prefix>/</Prefix>
+									</Subfield>
+								</Subfields>
+							</Option>
+							<Option id="7">
+								<Name>National Identity Number</Name>
+								<Prefix>/</Prefix>
+								<Subfields>
+									<Country type="ISO3" />
+									<Subfield>
+										<Name>Number</Name>
+										<Format>29x</Format>
+										<Prefix>/</Prefix>
+									</Subfield>
+								</Subfields>
+							</Option>
+							<Option id="8">
+								<Name>Additional Information</Name>
+								<Prefix>/</Prefix>
+								<Format>33x</Format>
+							</Option>
+						</Options>
+						<Prefix>\n</Prefix>
+						<Min>0</Min>
+						<Max>4</Max>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="F">
+				<Name>Party Identifier (Code)</Name>
+				<Subfields>
+					<Subfield type="select">
+						<Name>Identifier</Name>
+						<Options>
+							<Option id="ARNU">Alien Registration Number</Option>
+							<Option id="CCPT">Passport Number</Option>
+							<Option id="CUST">Customer Identification Number</Option>
+							<Option id="DRLC">Driver's License Number</Option>
+							<Option id="EMPL">Employer Number</Option>
+							<Option id="NIDN">National Identity Number</Option>
+							<Option id="SOSE">Social Security Number</Option>
+							<Option id="TXID">Tax Identification Number</Option>
+						</Options>
+						<Suffix>/</Suffix>
+					</Subfield>
+					<Country type="ISO3" />
+					<Subfield>
+						<Name>Number</Name>
+						<Format>27x</Format>
+						<Prefix>/</Prefix>
+					</Subfield>
+					<Subfield type="select">
+						<Name>Details-type</Name>
+						<Options>
+							<Option id="1">
+								<Name>Name of the Ordering Customer</Name>
+								<Format>33x</Format>
+								<Prefix>/</Prefix>
+							</Option>
+							<Option id="2">
+								<Name>Address Line</Name>
+								<Format>33x</Format>
+								<Prefix>/</Prefix>
+							</Option>
+							<Option id="3">
+								<Name>Country and Town</Name>
+								<Prefix>/</Prefix>
+								<Subfields>
+									<Country type="ISO3"/>
+									<Subfield>
+										<Name>Town</Name>
+										<Format>29x</Format>
+										<Prefix>/</Prefix>
+										<Min>0</Min>
+										<Max>1</Max>
+									</Subfield>
+								</Subfields>
+							</Option>
+							<Option id="4">
+								<Name>Date of Birth</Name>
+								<Prefix>/</Prefix>
+								<Format type="date">YYYYMMDD</Format>
+							</Option>
+							<Option id="5">
+								<Name>Place of Birth</Name>
+								<Prefix>/</Prefix>
+								<Subfields>
+									<Country type="ISO3"/>
+									<Subfield>
+										<Name>Town</Name>
+										<Format>29x</Format>
+										<Prefix>/</Prefix>
+										<Min>0</Min>
+										<Max>1</Max>
+									</Subfield>
+								</Subfields>
+							</Option>
+							<Option id="6">
+								<Name>Customer Identification Number</Name>
+								<Prefix>/</Prefix>
+								<Subfields>
+									<Country type="ISO3" />
+									<Subfield>
+										<Name>Issuer</Name>
+										<Format>29x</Format>
+										<Prefix>/</Prefix>
+									</Subfield>
+									<Subfield>
+										<Name>Number</Name>
+										<Format type="rest-length">29x</Format>
+										<Prefix>/</Prefix>
+									</Subfield>
+								</Subfields>
+							</Option>
+							<Option id="7">
+								<Name>National Identity Number</Name>
+								<Prefix>/</Prefix>
+								<Subfields>
+									<Country type="ISO3" />
+									<Subfield>
+										<Name>Number</Name>
+										<Format>29x</Format>
+										<Prefix>/</Prefix>
+									</Subfield>
+								</Subfields>
+							</Option>
+							<Option id="8">
+								<Name>Additional Information</Name>
+								<Prefix>/</Prefix>
+								<Format>33x</Format>
+							</Option>
+						</Options>
+						<Prefix>\n</Prefix>
+						<Min>0</Min>
+						<Max>4</Max>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="G">
+				<Name>Account (Code)</Name>
+				<Subfields>
+					<Subfield>
+						<Name>Account</Name>
+						<Format>34x</Format>
+						<Prefix>/</Prefix>
+					</Subfield>
+					<Subfield>
+						<Name>Identifier Code</Name>
+						<Format>4!a2!a2!c[3!c]</Format>
+						<Prefix>\n</Prefix>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="H">
+				<Name>Account (Name and Address)</Name>
+				<Subfields>
+					<Subfield>
+						<Name>Account</Name>
+						<Format>34x</Format>
+						<Prefix>/</Prefix>
+					</Subfield>
+					<Subfield>
+						<Name>Name and Address</Name>
+						<Format>35x</Format>
+						<Prefix>\n</Prefix>
+						<Min>0</Min>
+						<Max>4</Max>
+					</Subfield>
+				</Subfields>
+			</Option>
+		</Options>
+	</Field>
+	<Field id="52a">
+		<Name>Account Servicing Institution</Name>
+		<Sequence>A</Sequence>
+		<Presence type="rule">C6</Presence>
+		<Definition>This field specifies the account servicing institution - when other than the Receiver - which services the account of the account owner to be debited. This is applicable even if field 50a Ordering Customer contains an IBAN.</Definition>
+		<Usage>The coded information contained in field 52a should be meaningful to the Receiver of the message.</Usage>
+		<Options>
+			<Option id="A">
+				<Name>BIC</Name>
+				<Format>4!a2!a2!c[3!c]</Format>
+			</Option>
+			<Option id="C">
+				<Name>Party Identifier</Name>
+				<Format>34x</Format>
+				<Prefix>/</Prefix>
+			</Option>
+		</Options>
+	</Field>
+</Fields>

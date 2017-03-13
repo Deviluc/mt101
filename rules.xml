@@ -1,0 +1,147 @@
+<Rules>
+	<Rule>
+		<Name>C1</Name>
+		<Sequence>B</Sequence>
+		<Field name="36" />
+		<IfPresent>
+			<Mandatory field="21F" />
+		</IfPresent>
+		<IfNotPresent>
+			<Optional field="21F" />
+		</IfNotPresent>
+	</Rule>
+	<Rule>
+		<Name>C2</Name>
+		<Sequence>B</Sequence>
+		<Field name="33B" />
+		<IfPresent>
+			<IfEqualZero field="32B">
+				<NotAllowed field="36" />
+			</IfEqualZero>
+			<IfNotEqualZero>
+				<Mandatory field="36" />
+			</IfNotEqualZero>
+		</IfPresent>
+		<IfNotPresent>
+			<NotAllowed field="36" />
+		</IfNotPresent>
+	</Rule>
+	<Rule>
+		<Name>C3</Name>
+		<Sequence>A</Sequence>
+		<Field name="50a" options="F,G,H" />
+		<IfPresent>
+			<InAllSequences type="B">
+				<NotAllowed field="50a" options="F,G,H" />
+			</InAllSequences>
+		</IfPresent>
+		<IfNotPresent>
+			<InAllSequences type="B">
+				<Mandatory field="50a" options="F,G,H" />
+			</InAllSequences>
+		</IfNotPresent>
+	</Rule>
+	<Rule>
+		<Name>C4</Name>
+		<Sequence>A</Sequence>
+		<Field name="50a" options="C,L" />
+		<IfPresent>
+			<InAllSequences type="B">
+				<NotAllowed field="50a" options="C,L" />
+			</InAllSequences>
+		</IfPresent>
+		<IfNotPresent>
+			<InAllSequences type="B">
+				<Optional field="50a" options="C,L" />
+			</InAllSequences>
+		</IfNotPresent>
+	</Rule>
+	<Rule>
+		<Name>C5</Name>
+		<Sequence>B</Sequence>
+		<Field name="33B" />
+		<IfPresent>
+			<NotEqual>
+				<Field name="33B" subStart="5" subLength="3" />
+				<Field name="32B" subStart="5" subLength="3" />
+			</NotEqual>
+		</IfPresent>
+	</Rule>
+	<Rule>
+		<Name>C6</Name>
+		<Sequence>A</Sequence>
+		<Field name="52a" />
+		<IfPresent>
+			<InAllSequences type="B">
+				<NotAllowed field="52a" />
+			</InAllSequences>
+		</IfPresent>
+		<IfNotPresent>
+			<InAllSequences type="B">
+				<Optional field="52a" />
+			</InAllSequences>
+		</IfNotPresent>
+	</Rule>
+	<Rule>
+		<Name>C7</Name>
+		<Sequence>B</Sequence>
+		<Field name="56a" />
+		<IfPresent>
+			<Mandatory field="57a" />
+		</IfPresent>
+		<IfNotPresent>
+			<Optional field="57a" />
+		</IfNotPresent>
+	</Rule>
+	<Rule>
+		<Name>C8</Name>
+		<Sequence>A</Sequence>
+		<Field name="21R" />
+		<IfPresent>
+			<Equal>
+				<InAllSequences type="B">
+					<Field name="32B" subStart="5" subLength="3" />
+				</InAllSequences>
+			</Equal>
+		</IfPresent>
+	</Rule>
+	<Rule>
+		<Name>C9</Name>
+		<Sequence>B</Sequence>
+		<Field name="32B" />
+		<IfEqualZero field="32B" subStart="3" subLength="15">
+			<IfPresent field="23E">
+				<IfFieldValue value="EQUI" field="23E" subStart="0" subLength="4">
+					<Mandatory>
+						<Field name="33B" />
+					</Mandatory>
+					<Optional>
+						<Field name="21F" />
+					</Optional>
+				</IfFieldValue>
+				<Else>
+					<NotAllowed>
+						<Field name="33B" />
+						<Field name="21F" />
+					</NotAllowed>
+				</Else>
+			</IfPresent>
+			<Else>
+				<NotAllowed>
+					<Field name="33B" />
+					<Field name="21F" />
+				</NotAllowed>
+			</Else>
+		</IfEqualZero>
+		<Else>
+			<Optional>
+				<Field name="33B" />
+				<Field name="21F" />
+			</Optional>
+		</Else>
+	</Rule>
+</Rules>
+
+
+
+
