@@ -85,7 +85,7 @@
 								<Name>Country and Town</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3"/>
+									<Country type="ISO2"/>
 									<Subfield>
 										<Name>Town</Name>
 										<Format>29x</Format>
@@ -104,7 +104,7 @@
 								<Name>Place of Birth</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3"/>
+									<Country type="ISO2"/>
 									<Subfield>
 										<Name>Town</Name>
 										<Format>29x</Format>
@@ -118,7 +118,7 @@
 								<Name>Customer Identification Number</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3" />
+									<Country type="ISO2" />
 									<Subfield>
 										<Name>Issuer</Name>
 										<Format>29x</Format>
@@ -135,7 +135,7 @@
 								<Name>National Identity Number</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3" />
+									<Country type="ISO2" />
 									<Subfield>
 										<Name>Number</Name>
 										<Format>29x</Format>
@@ -172,7 +172,7 @@
 						</Options>
 						<Suffix>/</Suffix>
 					</Subfield>
-					<Country type="ISO3" />
+					<Country type="ISO2" />
 					<Subfield>
 						<Name>Number</Name>
 						<Format>27x</Format>
@@ -195,7 +195,7 @@
 								<Name>Country and Town</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3"/>
+									<Country type="ISO2"/>
 									<Subfield>
 										<Name>Town</Name>
 										<Format>29x</Format>
@@ -214,7 +214,7 @@
 								<Name>Place of Birth</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3"/>
+									<Country type="ISO2"/>
 									<Subfield>
 										<Name>Town</Name>
 										<Format>29x</Format>
@@ -228,7 +228,7 @@
 								<Name>Customer Identification Number</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3" />
+									<Country type="ISO2" />
 									<Subfield>
 										<Name>Issuer</Name>
 										<Format>29x</Format>
@@ -245,7 +245,7 @@
 								<Name>National Identity Number</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3" />
+									<Country type="ISO2" />
 									<Subfield>
 										<Name>Number</Name>
 										<Format>29x</Format>
@@ -471,6 +471,7 @@
 							</Option>
 						</Options>
 					</Subfield>
+				</Subfields>
 			</Option>
 		</Options>
 	</Field>
@@ -605,11 +606,11 @@
 		<Name>Instructing Party</Name>
 		<Sequence>B</Sequence>
 		<Presence type="rule">C4</Presence>
-		<Definition>This field identifies the customer which is authorised by the account owner/account servicing institution to order the transactions in this particular occurrence of sequence B.</Definition>
+		<Definition>This field identifies the customer which is authorised by the account owner/account servicing institution to order all the transactions in the message.</Definition>
 		<Usage>This field must only be used when the instructing customer is not also the account owner.</Usage>
 		<Options>
 			<Option id="C">
-				<Name>BIC</Name>
+				<Name>Identifier Code</Name>
 				<Format>4!a2!a2!c[3!c]</Format>
 			</Option>
 			<Option id="L">
@@ -651,7 +652,7 @@
 								<Name>Country and Town</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3"/>
+									<Country type="ISO2"/>
 									<Subfield>
 										<Name>Town</Name>
 										<Format>29x</Format>
@@ -670,7 +671,7 @@
 								<Name>Place of Birth</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3"/>
+									<Country type="ISO2"/>
 									<Subfield>
 										<Name>Town</Name>
 										<Format>29x</Format>
@@ -684,7 +685,7 @@
 								<Name>Customer Identification Number</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3" />
+									<Country type="ISO2" />
 									<Subfield>
 										<Name>Issuer</Name>
 										<Format>29x</Format>
@@ -701,7 +702,7 @@
 								<Name>National Identity Number</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3" />
+									<Country type="ISO2" />
 									<Subfield>
 										<Name>Number</Name>
 										<Format>29x</Format>
@@ -738,7 +739,7 @@
 						</Options>
 						<Suffix>/</Suffix>
 					</Subfield>
-					<Country type="ISO3" />
+					<Country type="ISO2" />
 					<Subfield>
 						<Name>Number</Name>
 						<Format>27x</Format>
@@ -761,7 +762,7 @@
 								<Name>Country and Town</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3"/>
+									<Country type="ISO2"/>
 									<Subfield>
 										<Name>Town</Name>
 										<Format>29x</Format>
@@ -780,7 +781,7 @@
 								<Name>Place of Birth</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3"/>
+									<Country type="ISO2"/>
 									<Subfield>
 										<Name>Town</Name>
 										<Format>29x</Format>
@@ -794,7 +795,7 @@
 								<Name>Customer Identification Number</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3" />
+									<Country type="ISO2" />
 									<Subfield>
 										<Name>Issuer</Name>
 										<Format>29x</Format>
@@ -811,7 +812,7 @@
 								<Name>National Identity Number</Name>
 								<Prefix>/</Prefix>
 								<Subfields>
-									<Country type="ISO3" />
+									<Country type="ISO2" />
 									<Subfield>
 										<Name>Number</Name>
 										<Format>29x</Format>
@@ -865,7 +866,791 @@
 			</Option>
 		</Options>
 	</Field>
-		<Definition>This field identifies the ordering customer which is the account owner ordering the transaction in the same occurrence of the sequence.</Definition>
-
-
+	<Field id="52a">
+		<Name>Account Servicing Institution</Name>
+		<Sequence>B</Sequence>
+		<Presence type="rule">C6</Presence>
+		<Definition>This field specifies the account servicing institution - when other than the Receiver - which services the account of the account owner to be debited. This is applicable even if field 50a Ordering Customer contains an IBAN.</Definition>
+		<Usage>The coded information contained in field 52a should be meaningful to the Receiver of the message.</Usage>
+		<Options>
+			<Option id="A">
+				<Name>Party Identifier</Name>
+				<Subfields>
+					<Subfield type="select">
+						<Name>National Clearing Code</Name>
+						<Min>0</Min>
+						<Max>1</Max>
+						<Prefix>//</Prefix>
+						<Suffix>\n</Suffix>
+						<Options>
+							<Option id="AT">
+								<Name>Austrian Bankleitzahl</Name>
+								<Format>5!n</Format>
+							</Option>
+							<Option id="AU">
+								<Name>Australian Bank State Branch (BSB) Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="BL">
+								<Name>German Bankleitzahl</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="CC">
+								<Name>Canadian Payments Association Payment Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="CN">
+								<Name>China National Advanced Payment Routing Number</Name>
+								<Format>12..14n</Format>
+							</Option>
+							<Option id="ES">
+								<Name>Spanish Domestic Interbanking Code</Name>
+								<Format>8..9n</Format>
+							</Option>
+							<Option id="GR">
+								<Name>HEBIC (Hellenic Bank Indentification Code)</Name>
+								<Format>7!n</Format>
+							</Option>
+							<Option id="HK">
+								<Name>Bank Code of Hong Kong</Name>
+								<Format>3!n</Format>
+							</Option>
+							<Option id="IE">
+								<Name>Irish National Clearing Code (NSC)</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="IN">
+								<Name>Indian Financial System Code</Name>
+								<Format>11!c</Format>
+							</Option>
+							<Option id="IT">
+								<Name>Italian Domestic Identification Code</Name>
+								<Format>10!n</Format>
+							</Option>
+							<Option id="PL">
+								<Name>Polish National Clearing Code (KNR)</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="PT">
+								<Name>Portuguese National Clearing Code</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="SC">
+								<Name>UK Domestic Sort Code</Name>
+								<Format>6!n</Format>
+							</Option>
+						</Options>
+					</Subfield>
+					<Subfield>
+						<Name>BIC</Name>
+						<Format>4!a2!a2!c[3!c]</Format>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="C">
+				<Name>Party Identifier (Other)</Name>
+				<Subfields>
+					<Subfield type="select">
+						<Name>National Clearing Code</Name>
+						<Prefix>//</Prefix>
+						<Options>
+							<Option id="AT">
+								<Name>Austrian Bankleitzahl</Name>
+								<Format>5!n</Format>
+							</Option>
+							<Option id="AU">
+								<Name>Australian Bank State Branch (BSB) Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="BL">
+								<Name>German Bankleitzahl</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="CC">
+								<Name>Canadian Payments Association Payment Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="CH">
+								<Name>CHIPS Universal Identifier</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="CN">
+								<Name>China National Advanced Payment Routing Number</Name>
+								<Format>12..14n</Format>
+							</Option>
+							<Option id="CP">
+								<Name>CHIPS Participant Identifier</Name>
+								<Format>4!n</Format>
+							</Option>
+							<Option id="ES">
+								<Name>Spanish Domestic Interbanking Code</Name>
+								<Format>8..9n</Format>
+							</Option>
+							<Option id="FW">
+								<Name>Fedwire Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="GR">
+								<Name>HEBIC (Hellenic Bank Indentification Code)</Name>
+								<Format>7!n</Format>
+							</Option>
+							<Option id="HK">
+								<Name>Bank Code of Hong Kong</Name>
+								<Format>3!n</Format>
+							</Option>
+							<Option id="IE">
+								<Name>Irish National Clearing Code (NSC)</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="IN">
+								<Name>Indian Financial System Code</Name>
+								<Format>11!c</Format>
+							</Option>
+							<Option id="IT">
+								<Name>Italian Domestic Identification Code</Name>
+								<Format>10!n</Format>
+							</Option>
+							<Option id="PL">
+								<Name>Polish National Clearing Code (KNR)</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="PT">
+								<Name>Portuguese National Clearing Code</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="RU">
+								<Name>Russian Central Bank</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="SC">
+								<Name>UK Domestic Sort Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="SW">
+								<Name>Swiss Clearing Code (BC code)</Name>
+								<Format>3..5n</Format>
+							</Option>
+							<Option id="SW">
+								<Name>Swiss Clearing Code (SIC code)</Name>
+								<Format>6!n</Format>
+							</Option>
+						</Options>
+					</Subfield>
+				</Subfields>
+			</Option>
+		</Options>
+	</Field>
+	<Field id="56a">
+		<Name>Intermediary</Name>
+		<Sequence>B</Sequence>
+		<Presence>Optional</Presence>
+		<Definition>This field specifies the financial institution through which the transaction must pass to reach the account with institution.</Definition>
+		<Usage>The intermediary may be a branch or affiliate of the Receiver or the account with institution, or an entirely different financial institution. When one of the codes //FW (with or without the 9-digit number), //AU, //CP or //IN is used, it should appear only once and in the first of the fields 56a and 57a of the payment instruction. When it is necessary that an incoming SWIFT payment be made to the party in this field via Fedwire, US banks require that the code //FW appears in the optional Party Identifier of field 56a or 57a. Option A is the preferred option. If the intermediary cannot be identified by a financial institution BIC, option C should be used containing a 2!a clearing system code preceded by a double slash '//'. Option D must only be used in exceptional circumstances: when the party cannot be identified by a financial institution BIC, when there is a need to be able to specify a name and address, for example, due to regulatory considerations or when there is a bilateral agreement between the Sender and the Receiver permitting its use. When qualified by a clearing system code or an account number, the use of option D will enable the automated processing of the instruction(s) by the Receiver.</Usage>
+		<Options>
+			<Option id="A">
+				<Name>Party Identifier</Name>
+				<Subfields>
+					<Subfield type="select">
+						<Name>National Clearing Code</Name>
+						<Min>0</Min>
+						<Max>1</Max>
+						<Prefix>//</Prefix>
+						<Suffix>\n</Suffix>
+						<Options>
+							<Option id="AT">
+								<Name>Austrian Bankleitzahl</Name>
+								<Format>5!n</Format>
+							</Option>
+							<Option id="AU">
+								<Name>Australian Bank State Branch (BSB) Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="BL">
+								<Name>German Bankleitzahl</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="CC">
+								<Name>Canadian Payments Association Payment Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="CN">
+								<Name>China National Advanced Payment Routing Number</Name>
+								<Format>12..14n</Format>
+							</Option>
+							<Option id="ES">
+								<Name>Spanish Domestic Interbanking Code</Name>
+								<Format>8..9n</Format>
+							</Option>
+							<Option id="GR">
+								<Name>HEBIC (Hellenic Bank Indentification Code)</Name>
+								<Format>7!n</Format>
+							</Option>
+							<Option id="HK">
+								<Name>Bank Code of Hong Kong</Name>
+								<Format>3!n</Format>
+							</Option>
+							<Option id="IE">
+								<Name>Irish National Clearing Code (NSC)</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="IN">
+								<Name>Indian Financial System Code</Name>
+								<Format>11!c</Format>
+							</Option>
+							<Option id="IT">
+								<Name>Italian Domestic Identification Code</Name>
+								<Format>10!n</Format>
+							</Option>
+							<Option id="PL">
+								<Name>Polish National Clearing Code (KNR)</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="PT">
+								<Name>Portuguese National Clearing Code</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="SC">
+								<Name>UK Domestic Sort Code</Name>
+								<Format>6!n</Format>
+							</Option>
+						</Options>
+					</Subfield>
+					<Subfield>
+						<Name>BIC</Name>
+						<Format>4!a2!a2!c[3!c]</Format>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="C">
+				<Name>Party Identifier (Clearing Code)</Name>
+				<Subfields>
+					<Subfield type="select">
+						<Name>National Clearing Code</Name>
+						<Prefix>//</Prefix>
+						<Options>
+							<Option id="AT">
+								<Name>Austrian Bankleitzahl</Name>
+								<Format>5!n</Format>
+							</Option>
+							<Option id="AU">
+								<Name>Australian Bank State Branch (BSB) Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="BL">
+								<Name>German Bankleitzahl</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="CC">
+								<Name>Canadian Payments Association Payment Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="CH">
+								<Name>CHIPS Universal Identifier</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="CN">
+								<Name>China National Advanced Payment Routing Number</Name>
+								<Format>12..14n</Format>
+							</Option>
+							<Option id="CP">
+								<Name>CHIPS Participant Identifier</Name>
+								<Format>4!n</Format>
+							</Option>
+							<Option id="ES">
+								<Name>Spanish Domestic Interbanking Code</Name>
+								<Format>8..9n</Format>
+							</Option>
+							<Option id="FW">
+								<Name>Fedwire Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="GR">
+								<Name>HEBIC (Hellenic Bank Indentification Code)</Name>
+								<Format>7!n</Format>
+							</Option>
+							<Option id="HK">
+								<Name>Bank Code of Hong Kong</Name>
+								<Format>3!n</Format>
+							</Option>
+							<Option id="IE">
+								<Name>Irish National Clearing Code (NSC)</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="IN">
+								<Name>Indian Financial System Code</Name>
+								<Format>11!c</Format>
+							</Option>
+							<Option id="IT">
+								<Name>Italian Domestic Identification Code</Name>
+								<Format>10!n</Format>
+							</Option>
+							<Option id="PL">
+								<Name>Polish National Clearing Code (KNR)</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="PT">
+								<Name>Portuguese National Clearing Code</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="RU">
+								<Name>Russian Central Bank</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="SC">
+								<Name>UK Domestic Sort Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="SW">
+								<Name>Swiss Clearing Code (BC code)</Name>
+								<Format>3..5n</Format>
+							</Option>
+							<Option id="SW">
+								<Name>Swiss Clearing Code (SIC code)</Name>
+								<Format>6!n</Format>
+							</Option>
+						</Options>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="D">
+				<Name>Party Identifier (Other)</Name>
+				<Subfields>
+					<Subfield type="select">
+						<Name>National Clearing Code</Name>
+						<Prefix>//</Prefix>
+						<Min>0</Min>
+						<Max>1</Max>
+						<Options>
+							<Option id="AT">
+								<Name>Austrian Bankleitzahl</Name>
+								<Format>5!n</Format>
+							</Option>
+							<Option id="AU">
+								<Name>Australian Bank State Branch (BSB) Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="BL">
+								<Name>German Bankleitzahl</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="CC">
+								<Name>Canadian Payments Association Payment Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="CH">
+								<Name>CHIPS Universal Identifier</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="CN">
+								<Name>China National Advanced Payment Routing Number</Name>
+								<Format>12..14n</Format>
+							</Option>
+							<Option id="CP">
+								<Name>CHIPS Participant Identifier</Name>
+								<Format>4!n</Format>
+							</Option>
+							<Option id="ES">
+								<Name>Spanish Domestic Interbanking Code</Name>
+								<Format>8..9n</Format>
+							</Option>
+							<Option id="FW">
+								<Name>Fedwire Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="GR">
+								<Name>HEBIC (Hellenic Bank Indentification Code)</Name>
+								<Format>7!n</Format>
+							</Option>
+							<Option id="HK">
+								<Name>Bank Code of Hong Kong</Name>
+								<Format>3!n</Format>
+							</Option>
+							<Option id="IE">
+								<Name>Irish National Clearing Code (NSC)</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="IN">
+								<Name>Indian Financial System Code</Name>
+								<Format>11!c</Format>
+							</Option>
+							<Option id="IT">
+								<Name>Italian Domestic Identification Code</Name>
+								<Format>10!n</Format>
+							</Option>
+							<Option id="PL">
+								<Name>Polish National Clearing Code (KNR)</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="PT">
+								<Name>Portuguese National Clearing Code</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="RU">
+								<Name>Russian Central Bank</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="SC">
+								<Name>UK Domestic Sort Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="SW">
+								<Name>Swiss Clearing Code (BC code)</Name>
+								<Format>3..5n</Format>
+							</Option>
+							<Option id="SW">
+								<Name>Swiss Clearing Code (SIC code)</Name>
+								<Format>6!n</Format>
+							</Option>
+						</Options>
+					</Subfield>
+					<Subfield>
+						<Name>Name and Address</Name>
+						<Format>35x</Format>
+						<Min>0</Min>
+						<Max>4</Max>
+						<Prefix>\n</Prefix>
+					</Subfield>
+				</Subfields>
+			</Option>
+		</Options>
+	</Field>
+	<Field id="57a">
+		<Name>Account with Institution</Name>
+		<Sequence>B</Sequence>
+		<Presence type="rule">C7</Presence>
+		<Definition>This field specifies the financial institution which services the account for the beneficiary customer. This is applicable even if field 59a contains an IBAN.</Definition>
+		<Usage>When field 57a is not present, it means that the Receiver is also the account with institution. When one of the codes //FW (with or without the 9-digit number), //AU, //CP or //IN is used, it should appear only once and in the first of the fields 56a and 57a of the payment instruction. When it is necessary that an incoming SWIFT payment be made to the party in this field via Fedwire, US banks require that the code //FW appears in the optional Party Identifier of field 56a or 57a. Option A is the preferred option. If the intermediary cannot be identified by a financial institution BIC, option C should be used containing a 2!a clearing system code preceded by a double slash '//'. Option D must only be used in exceptional circumstances: when the party cannot be identified by a financial institution BIC, when there is a need to be able to specify a name and address, for example, due to regulatory considerations or when there is a bilateral agreement between the Sender and the Receiver permitting its use. When qualified by a clearing system code or an account number, the use of option D will enable the automated processing of the instruction(s) by the Receiver.</Usage>
+		<Options>
+			<Option id="A">
+				<Name>Party Identifier</Name>
+				<Subfields>
+					<Subfield type="select">
+						<Name>National Clearing Code</Name>
+						<Min>0</Min>
+						<Max>1</Max>
+						<Prefix>//</Prefix>
+						<Suffix>\n</Suffix>
+						<Options>
+							<Option id="AT">
+								<Name>Austrian Bankleitzahl</Name>
+								<Format>5!n</Format>
+							</Option>
+							<Option id="AU">
+								<Name>Australian Bank State Branch (BSB) Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="BL">
+								<Name>German Bankleitzahl</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="CC">
+								<Name>Canadian Payments Association Payment Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="CN">
+								<Name>China National Advanced Payment Routing Number</Name>
+								<Format>12..14n</Format>
+							</Option>
+							<Option id="ES">
+								<Name>Spanish Domestic Interbanking Code</Name>
+								<Format>8..9n</Format>
+							</Option>
+							<Option id="GR">
+								<Name>HEBIC (Hellenic Bank Indentification Code)</Name>
+								<Format>7!n</Format>
+							</Option>
+							<Option id="HK">
+								<Name>Bank Code of Hong Kong</Name>
+								<Format>3!n</Format>
+							</Option>
+							<Option id="IE">
+								<Name>Irish National Clearing Code (NSC)</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="IN">
+								<Name>Indian Financial System Code</Name>
+								<Format>11!c</Format>
+							</Option>
+							<Option id="IT">
+								<Name>Italian Domestic Identification Code</Name>
+								<Format>10!n</Format>
+							</Option>
+							<Option id="PL">
+								<Name>Polish National Clearing Code (KNR)</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="PT">
+								<Name>Portuguese National Clearing Code</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="SC">
+								<Name>UK Domestic Sort Code</Name>
+								<Format>6!n</Format>
+							</Option>
+						</Options>
+					</Subfield>
+					<Subfield>
+						<Name>BIC</Name>
+						<Format>4!a2!a2!c[3!c]</Format>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="C">
+				<Name>Party Identifier (Clearing Code)</Name>
+				<Subfields>
+					<Subfield type="select">
+						<Name>National Clearing Code</Name>
+						<Prefix>//</Prefix>
+						<Options>
+							<Option id="AT">
+								<Name>Austrian Bankleitzahl</Name>
+								<Format>5!n</Format>
+							</Option>
+							<Option id="AU">
+								<Name>Australian Bank State Branch (BSB) Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="BL">
+								<Name>German Bankleitzahl</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="CC">
+								<Name>Canadian Payments Association Payment Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="CH">
+								<Name>CHIPS Universal Identifier</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="CN">
+								<Name>China National Advanced Payment Routing Number</Name>
+								<Format>12..14n</Format>
+							</Option>
+							<Option id="CP">
+								<Name>CHIPS Participant Identifier</Name>
+								<Format>4!n</Format>
+							</Option>
+							<Option id="ES">
+								<Name>Spanish Domestic Interbanking Code</Name>
+								<Format>8..9n</Format>
+							</Option>
+							<Option id="FW">
+								<Name>Fedwire Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="GR">
+								<Name>HEBIC (Hellenic Bank Indentification Code)</Name>
+								<Format>7!n</Format>
+							</Option>
+							<Option id="HK">
+								<Name>Bank Code of Hong Kong</Name>
+								<Format>3!n</Format>
+							</Option>
+							<Option id="IE">
+								<Name>Irish National Clearing Code (NSC)</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="IN">
+								<Name>Indian Financial System Code</Name>
+								<Format>11!c</Format>
+							</Option>
+							<Option id="IT">
+								<Name>Italian Domestic Identification Code</Name>
+								<Format>10!n</Format>
+							</Option>
+							<Option id="PL">
+								<Name>Polish National Clearing Code (KNR)</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="PT">
+								<Name>Portuguese National Clearing Code</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="RU">
+								<Name>Russian Central Bank</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="SC">
+								<Name>UK Domestic Sort Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="SW">
+								<Name>Swiss Clearing Code (BC code)</Name>
+								<Format>3..5n</Format>
+							</Option>
+							<Option id="SW">
+								<Name>Swiss Clearing Code (SIC code)</Name>
+								<Format>6!n</Format>
+							</Option>
+						</Options>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="D">
+				<Name>Party Identifier (Other)</Name>
+				<Subfields>
+					<Subfield type="select">
+						<Name>National Clearing Code</Name>
+						<Prefix>//</Prefix>
+						<Min>0</Min>
+						<Max>1</Max>
+						<Options>
+							<Option id="AT">
+								<Name>Austrian Bankleitzahl</Name>
+								<Format>5!n</Format>
+							</Option>
+							<Option id="AU">
+								<Name>Australian Bank State Branch (BSB) Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="BL">
+								<Name>German Bankleitzahl</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="CC">
+								<Name>Canadian Payments Association Payment Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="CH">
+								<Name>CHIPS Universal Identifier</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="CN">
+								<Name>China National Advanced Payment Routing Number</Name>
+								<Format>12..14n</Format>
+							</Option>
+							<Option id="CP">
+								<Name>CHIPS Participant Identifier</Name>
+								<Format>4!n</Format>
+							</Option>
+							<Option id="ES">
+								<Name>Spanish Domestic Interbanking Code</Name>
+								<Format>8..9n</Format>
+							</Option>
+							<Option id="FW">
+								<Name>Fedwire Routing Number</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="GR">
+								<Name>HEBIC (Hellenic Bank Indentification Code)</Name>
+								<Format>7!n</Format>
+							</Option>
+							<Option id="HK">
+								<Name>Bank Code of Hong Kong</Name>
+								<Format>3!n</Format>
+							</Option>
+							<Option id="IE">
+								<Name>Irish National Clearing Code (NSC)</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="IN">
+								<Name>Indian Financial System Code</Name>
+								<Format>11!c</Format>
+							</Option>
+							<Option id="IT">
+								<Name>Italian Domestic Identification Code</Name>
+								<Format>10!n</Format>
+							</Option>
+							<Option id="PL">
+								<Name>Polish National Clearing Code (KNR)</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="PT">
+								<Name>Portuguese National Clearing Code</Name>
+								<Format>8!n</Format>
+							</Option>
+							<Option id="RU">
+								<Name>Russian Central Bank</Name>
+								<Format>9!n</Format>
+							</Option>
+							<Option id="SC">
+								<Name>UK Domestic Sort Code</Name>
+								<Format>6!n</Format>
+							</Option>
+							<Option id="SW">
+								<Name>Swiss Clearing Code (BC code)</Name>
+								<Format>3..5n</Format>
+							</Option>
+							<Option id="SW">
+								<Name>Swiss Clearing Code (SIC code)</Name>
+								<Format>6!n</Format>
+							</Option>
+						</Options>
+					</Subfield>
+					<Subfield>
+						<Name>Name and Address</Name>
+						<Format>35x</Format>
+						<Min>0</Min>
+						<Max>4</Max>
+						<Prefix>\n</Prefix>
+					</Subfield>
+				</Subfields>
+			</Option>
+		</Options>
+	</Field>
+	<Field id="59a">
+		<Name>Beneficiary</Name>
+		<Sequence>B</Sequence>
+		<Presence>Mandatory</Presence>
+		<Definition>This field identifies the beneficiary of the subsequent operation from the particular occurrence of sequence B.</Definition>
+		<Usage>At least the name or BIC of the beneficiary customer is mandatory. If the account number of the beneficiary customer is known, it must be stated in Account. In option F: line codes may be repeated, if number 2 is present, the first occurrence of number 3 must include the town in the additional details, the first line must start with number 1, numbers must appear in numerical order, number 2 must not be used without number 3 and the first occurrence of number 3 must be followed by a valid ISO country code.</Usage>
+		<Options>
+			<Option id="">
+				<Name>Account (Name and Address)</Name>
+				<Subfields>
+					<Subfield>
+						<Name>Account</Name>
+						<Format>34x</Format>
+						<Prefix>/</Prefix>
+						<Min>0</Min>
+						<Max>1</Max>
+					</Subfield>
+					<Subfield>
+						<Name>Account</Name>
+						<Format>35x</Format>
+						<Prefix>\n</Prefix>
+						<Min>0</Min>
+						<Max>4</Max>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="A">
+				<Name>Account (BIC)</Name>
+				<Subfields>
+					<Subfield>
+						<Name>Account</Name>
+						<Format>34x</Format>
+						<Prefix>/</Prefix>
+						<Min>0</Min>
+						<Max>1</Max>
+					</Subfield>
+					<Subfield>
+						<Name>BIC</Name>
+						<Format>4!a2!a2!c[3!c]</Format>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="F">
+				<Name>Account (Name and Address Details)</Name>
+				<Subfields>
+					<Subfield>
+						<Name>Account</Name>
+						<Format>34x</Format>
+						<Prefix>/</Prefix>
+						<Min>0</Min>
+						<Max>1</Max>
+					</Subfield>
+					<Subfield>
+						<Name>Name and Address Details</Name>
+						<Subfields>
+							<Subfield type="select">
+								<Name>Code</Name>
+								<Options>
+									<Option id="1">
+										<Name>Name of Beneficiary Customer</Name>
+										<Prefix>/
+									</Option>
+									<Option id="2">
+		</Options>
+	</Field>
 </Fields>
