@@ -25,13 +25,11 @@
 			<Subfield>
 				<Name>Message Index</Name>
 				<Format>5n</Format>
-				<Amount>1</Amount>
 			</Subfield>
 			<Subfield text="/" />
 			<Subfield>
 				<Name>Total</Name>
 				<Format>5n</Format>
-				<Amount>1</Amount>
 			</Subfield>
 		</Subfields>
 	</Field>
@@ -1593,7 +1591,7 @@
 		<Sequence>B</Sequence>
 		<Presence>Mandatory</Presence>
 		<Definition>This field identifies the beneficiary of the subsequent operation from the particular occurrence of sequence B.</Definition>
-		<Usage>At least the name or BIC of the beneficiary customer is mandatory. If the account number of the beneficiary customer is known, it must be stated in Account. In option F: line codes may be repeated, if number 2 is present, the first occurrence of number 3 must include the town in the additional details, the first line must start with number 1, numbers must appear in numerical order, number 2 must not be used without number 3 and the first occurrence of number 3 must be followed by a valid ISO country code.</Usage>
+		<Usage>At least the name or BIC of the beneficiary customer is mandatory. If the account number of the beneficiary customer is known, it must be stated in Account. In option F: line codes may be repeated, if number 2 is present, the first occurrence of number 3 must include the town in the additional details, the first line must start with number 1, numbers must appear in numerical order, number 2 must not be used without number 3 and the first occurrence of number 3 must be followed by a valid ISO country code. In Option F the first occurrence of number 3 must be followed by a slash, '/', the ISO country code and, optionally, additional details that are preceded by a slash '/'. Other occurrence(s) of number 3 must be followed by a slash '/' and the continuation of additional details.</Usage>
 		<Options>
 			<Option id="">
 				<Name>Account (Name and Address)</Name>
@@ -1642,15 +1640,156 @@
 					</Subfield>
 					<Subfield>
 						<Name>Name and Address Details</Name>
+						<Min>1</Min>
+						<Max>4</Max>
 						<Subfields>
 							<Subfield type="select">
 								<Name>Code</Name>
 								<Options>
 									<Option id="1">
 										<Name>Name of Beneficiary Customer</Name>
-										<Prefix>/
+										<Prefix>/</Prefix>
+										<Format>33x</Format>
 									</Option>
 									<Option id="2">
+										<Name>Address Line</Name>
+										<Prefix>/</Prefix>
+										<Format>33x</Format>
+									</Option>
+									<Option id="3">
+										<Name>Country and Town</Name>
+										<Prefix>/</Prefix>
+										<Max>1</Max>
+										<Subfields>
+											<Country type="ISO2" />
+											<Subfield>
+												<Name>Town</Name>
+												<Prefix>/</Prefix>
+												<Format>30x</Format>
+											</Subfield>
+										</Subfields>
+									</Option>
+									<Option id="3">
+										<Name>Country and Town (more)</Name>
+										<Prefix>/</Prefix>
+										<Format>33x</Format>
+									</Option>
+								</Options>
+							</Subfield>
+						</Subfields>
+					</Subfield>
+				</Subfields>
+			</Option>
 		</Options>
+	</Field>
+	<Field id="70">
+		<Name>Remittance Information</Name>
+		<Sequence>B</Sequence>
+		<Presence>Optional</Presence>
+		<Definition>This field specifies details of the individual transactions which are to be transmitted to the beneficiary customer.</Definition>
+		<Usage>The information specified in this field is intended only for the beneficiary customer, that is, this information only needs to be conveyed by the Receiver.</Usage>
+		<Subfields>
+			<Subfield>
+				<Name>Narrative line</Name>
+				<Format>35x</Format>
+			</Subfield>
+			<Subfield>
+				<Name>Additional narrative line</Name>
+				<Format>35x</Format>
+				<Prefix>\n</Prefix>
+			</Subfield>
+		</Subfields>
+	</Field>
+	<Field id="77B">
+		<Name>Regulatory Reporting</Name>
+		<Sequence>B</Sequence>
+		<Presence>Optional</Presence>
+		<Definition>This field specifies the codes for the statutory and/or regulatory information required by the authorities in the country of the receiver or the sender/originating customer.</Definition>
+		<Usage>The information specified must not have been explicitly conveyed in another field.</Usage>
+		<Options>
+			<Option id="">
+				<Name>Narrative</Name>
+				<Subfields>
+					<Subfield>
+						<Name>Narrative Line</Name>
+						<Max>3</Max>
+						<Format>35x</Format>
+					</Subfield>
+				</Subfields>
+			</Option>
+			<Option id="">
+				<Name>Residence and narrative</Name>
+				<Subfields>
+					<Subfield type="select">
+						<Name>Code</Name>
+						<Prefix>/</Prefix>
+						<Suffix>/</Suffix>
+						<Options>
+							<Option id="BENEFRES">Residence of the beneficiary customer</Option>
+							<Option id="ORDERRES">Residence of the ordering customer</Option>
+						</Options>
+					</Subfield>
+					<Country type="ISO2" />
+					<Subfield>
+						<Name>Additional information</Name>
+						<Prefix>//</Prefix>
+						<Format>21x</Format>
+					</Subfield>
+					<Subfield>
+						<Name>Additional information (more)</Name>
+						<Max>2</Max>
+						<Prefix>\n</Prefix>
+						<Format>35x</Format>
+					</Subfield>
+				</Subfields>
+			</Option>
+		</Options>
+	</Field>
+	<Field id="33B">
+		<Name>Currency / Original Ordered Amount</Name>
+		<Sequence>B</Sequence>
+		<Presence type="rule">C9</Presence>
+		<Definition>This field specifies the original currency and amount as specified by the ordering customer.</Definition>
+		<Usage>This field is used when the currency and amount are different from those specified in field 32B.</Usage>
+		<Subfields>
+			<Currency type="ISO3" />
+			<Subfield>
+				<Name>Amount</Name>
+				<Format>15d</Format>
+			</Subfield>
+		</Subfields>
+	</Field>
+	<Field id="71A">
+		<Name>Details of Charges</Name>
+		<Sequence>B</Sequence>
+		<Presence>Mandatory</Presence>
+		<Definition>This field specifies which party will bear the applicable charges for the subsequent transfer of funds.</Definition>
+		<Subfields>
+			<Subfield type="select">
+				<Name>Code</Name>
+				<Options>
+					<Option id="BEN">Beneficiary</Option>
+					<Option id="OUR">Our customer charged</Option>
+					<Option id="SHA">Shared charges</Option>
+				</Options>
+			</Subfield>
+		</Subfields>
+	</Field>
+	<Field id="25A">
+		<Name>Charges Account</Name>
+		<Sequence>B</Sequence>
+		<Presence>Optional</Presence>
+		<Definition>This field specifies the ordering customer's account number to which applicable transaction charges should be separately applied.</Definition>
+		<Usage>When used, the account number must be different from the account number specified in field 50a Ordering Customer.</Usage>
+		<Prefix>/</Prefix>
+		<Format>34x</Format>
+	</Field>
+	<Field id="36">
+		<Name>Exchange Rate</Name>
+		<Sequence>B</Sequence>
+		<Presence type="rule">C2</Presence>
+		<Definition>This field specifies the exchange rate applied by the ordering customer/instructing party when converting the original ordered amount to the transaction amount.</Definition>
+		<Usage>The integer part of Rate must contain at least one digit. A decimal comma is mandatory.</Usage>
+		<Format>12d</Format>
 	</Field>
 </Fields>
